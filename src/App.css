@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+body{
+  color: #132b4b;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -73,6 +77,7 @@ button {
   padding: 0px 10px;
   border: 1px solid grey;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .users {
@@ -84,6 +89,7 @@ button {
   text-align: center;
   margin-bottom: 40px;
   margin-top: 40px;
+  color: #132b4b;
 }
 .users table {
   border: unset;

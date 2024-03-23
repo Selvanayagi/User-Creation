@@ -225,7 +225,7 @@ const UserComponent = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Phone *</td>
+                            <td>Phone Number *</td>
                             <td style={{ width: "25px" }}></td>
                             <td>
                                 <input 

@@ -108,7 +108,7 @@ const UserFormComp = ( { userList, setUserModalShow }: UserForm ) => {
                     <th>FirstName *</th>
                     <th>LastName *</th>
                     <th>Email ID *</th>
-                    <th>Phone *</th>
+                    <th>Phone Number *</th>
                 </tr>
                 {
                     form.map(( f: User, id: number )=>{
@@ -128,7 +128,7 @@ const UserFormComp = ( { userList, setUserModalShow }: UserForm ) => {
                                 </td>
                                 <td>
                                     <div className="d-flex gap-1 ml-2">
-                                        <div className='button-action' onClick={()=>{ removeUser(id) }}>-</div>
+                                        { form.length > 1 && <div className='button-action' onClick={()=>{ removeUser(id) }}>-</div> }
                                         {
                                             form.length - 1 === id && form.length < 5 && 
                                             <div className='button-action' onClick={addUserForm}>+</div>

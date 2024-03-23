@@ -14,19 +14,19 @@ const LoginComp = () => {
 
     const login = (e: any) => {
         e.preventDefault();
-        if(email === 'admin' && password === 'admin') {
+        if(email === 'admin@gmail.com' && password === 'admin') {
             navigate('/user');
             sessionStorage.setItem('loggedIn', 'true');
         } else {
-            toast.error('Wrong username or passoword')
+            toast.error('Wrong username or password')
         }
     }
 
     return(
         <div className='login-comp'>
-            <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Welcome</h1>
+            <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Welcome to Lakeba</h1>
             <form style={{ textAlign: "center" }}>
-                <input placeholder='username' type="text" value={email} onChange={(e) => { setEmailId(e.target.value) }}  />
+                <input placeholder='email' type="text" value={email} onChange={(e) => { setEmailId(e.target.value) }}  />
                 <br />
                 <input placeholder='password' type={!showPassword ? "password" : "text"} value={password} onChange={(e) => { setPassword(e.target.value) }}  />
                 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210917145551/eye.png"
