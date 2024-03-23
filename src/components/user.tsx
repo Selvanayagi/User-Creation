@@ -169,7 +169,7 @@ const UserComponent = () => {
                 <Modal.Body>
                     <table>
                         <tr>
-                            <td>FirstName</td>
+                            <td>FirstName *</td>
                             <td style={{ width: "25px" }}></td>
                             <td>
                                 <input 
@@ -185,7 +185,7 @@ const UserComponent = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>LastName</td>
+                            <td>LastName *</td>
                             <td style={{ width: "25px" }}></td>
                             <td>
                                 <input 
@@ -201,7 +201,7 @@ const UserComponent = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Email ID</td>
+                            <td>Email ID *</td>
                             <td style={{ width: "25px" }}></td>
                             <td>
                                 <input 
@@ -217,7 +217,7 @@ const UserComponent = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Phone</td>
+                            <td>Phone *</td>
                             <td style={{ width: "25px" }}></td>
                             <td>
                                 <input 

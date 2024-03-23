@@ -3,6 +3,8 @@ import { User, UserForm } from '../types/user';
 import { validateUser } from '../utils/utils';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../actions/userListActions';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserFormComp = ( { userList, setUserModalShow }: UserForm ) => {
 
@@ -76,7 +78,7 @@ const UserFormComp = ( { userList, setUserModalShow }: UserForm ) => {
     const addUsers = () => {
         let err = error.some(obj => Object.values(obj).some(value => value === true));
         if(err) {
-            alert("Please enter valid values")
+            toast.error("Please enter valid values")
         } else {
             setError([{
                 id: userList.length.toString(),
@@ -103,10 +105,10 @@ const UserFormComp = ( { userList, setUserModalShow }: UserForm ) => {
         <>
             <table>
                 <tr>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Email ID</th>
-                    <th>Phone</th>
+                    <th>FirstName *</th>
+                    <th>LastName *</th>
+                    <th>Email ID *</th>
+                    <th>Phone *</th>
                 </tr>
                 {
                     form.map(( f: User, id: number )=>{
