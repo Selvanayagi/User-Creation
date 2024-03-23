@@ -88,7 +88,7 @@ const UserComponent = () => {
             {/* Show user table */}
             <div className='users'>
                 {
-                    users?.length > 0 ?
+                    users?.length > 0 || searchQuery.length > 0  ?
                     <>
                         <h1>User List</h1>
                         <table>
@@ -101,62 +101,70 @@ const UserComponent = () => {
                                     
                                 </td>
                             </tr>
-                            <tr>
-                                <th>
-                                    <input 
-                                        style={{ width: "20px" }} 
-                                        onClick={()=>{ 
-                                            if(selectedUsers.length === userList.length) {
-                                                setSelectedUsers([])
-                                            } else {
-                                                setSelectedUsers(userList.map((item: User) => item.id))
-                                            }
-                                        }} 
-                                        type="checkbox" 
-                                        checked={selectedUsers.length === userList.length} 
-                                    />
-                                </th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email ID</th>
-                                <th>Phone Number</th>
-                                <th colSpan={2}>Actions</th>
-                            </tr>
                             {
-                                users.map((user: User, index: number) => {
-                                    return(
+                                users.length > 0 
+                                ?
+                                    <>
                                         <tr>
-                                            <td>
+                                            <th>
                                                 <input 
                                                     style={{ width: "20px" }} 
                                                     onClick={()=>{ 
-                                                        if(selectedUsers.includes(user.id)) {
-                                                            setSelectedUsers(selectedUsers.filter((item: string) => item !== user.id))
+                                                        if(selectedUsers.length === userList.length) {
+                                                            setSelectedUsers([])
                                                         } else {
-                                                            let newList = [...selectedUsers];
-                                                            newList.push(user.id);
-                                                            setSelectedUsers(newList)
+                                                            setSelectedUsers(userList.map((item: User) => item.id))
                                                         }
-                                                     }} 
-                                                     type="checkbox" 
-                                                     checked={selectedUsers.includes(user.id)} 
+                                                    }} 
+                                                    type="checkbox" 
+                                                    checked={selectedUsers.length === userList.length} 
                                                 />
-                                            </td>
-                                            <td>{user.firstName}</td>
-                                            <td>{user.lastName}</td>
-                                            <td>{user.emailId}</td>
-                                            <td >{user.phone}</td>
-                                            <td className='link' onClick={()=>{ setEditUser(users[index]); setShow(true) }}>Edit</td>
-                                            <td className='link' onClick={()=>{ setDeleteModalShow(true); setDeleteUserIndex(index) }}>Delete</td>
+                                            </th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email ID</th>
+                                            <th>Phone Number</th>
+                                            <th colSpan={2}>Actions</th>
                                         </tr>
-                                    )
-                                })
+                                        {
+                                            users.map((user: User, index: number) => {
+                                                return(
+                                                    <tr>
+                                                        <td>
+                                                            <input 
+                                                                style={{ width: "20px" }} 
+                                                                onClick={()=>{ 
+                                                                    if(selectedUsers.includes(user.id)) {
+                                                                        setSelectedUsers(selectedUsers.filter((item: string) => item !== user.id))
+                                                                    } else {
+                                                                        let newList = [...selectedUsers];
+                                                                        newList.push(user.id);
+                                                                        setSelectedUsers(newList)
+                                                                    }
+                                                                }} 
+                                                                type="checkbox" 
+                                                                checked={selectedUsers.includes(user.id)} 
+                                                            />
+                                                        </td>
+                                                        <td>{user.firstName}</td>
+                                                        <td>{user.lastName}</td>
+                                                        <td>{user.emailId}</td>
+                                                        <td >{user.phone}</td>
+                                                        <td className='link' onClick={()=>{ setEditUser(users[index]); setShow(true) }}>Edit</td>
+                                                        <td className='link' onClick={()=>{ setDeleteModalShow(true); setDeleteUserIndex(index) }}>Delete</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </>
+                                :
+                                    <tr><td  colSpan={7}>No users found</td></tr>
                             }
                         </table>
                     </>
                     :
                     <>
-                        <h1>Click on Add users to add new users</h1>
+                         <h1>Click on Add users to add new users</h1>
                     </>
                 }
             </div>
